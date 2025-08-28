@@ -23,6 +23,7 @@ namespace ChatClientForm
         {
             InitializeComponent();
             chatMessageText.Text = "";
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,7 +58,10 @@ namespace ChatClientForm
             }
             else
             {
-
+                TcpClient client = new TcpClient("127.0.0.1", 8000);
+                NetworkStream stream = client.GetStream();
+                byte[] data = Encoding.UTF8.GetBytes(userName);
+                stream.Write(data, 0, data.Length);
             }
         }
 
@@ -68,12 +72,17 @@ namespace ChatClientForm
         /// <param name="e"></param>
         private void messageSendButton_Click(object sender, EventArgs e)
         {
-            if (messageInputField.Text == null || messageInputField.Text == "")
+            if (userName == null) 
+            {
+                MessageBox.Show("Cannot send an a message without a profile");
+            }
+            else if(messageInputField.Text == null || messageInputField.Text == "")
             {
                 MessageBox.Show("Cannot send an empty message");
             }
             else
             {
+                
                 message = messageInputField.Text;
                 messageToServer = $"{userName}: {message}"; //Add timestamps to messages format "[12:00] Alex: Hello world"
                                                             //Send message to the server.
