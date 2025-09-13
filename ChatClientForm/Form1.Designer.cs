@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.chatMessageText = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.connectedUserList = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.nameInput = new System.Windows.Forms.TextBox();
             this.connectButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -41,9 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.messageInputField = new System.Windows.Forms.TextBox();
             this.messageSendButton = new System.Windows.Forms.Button();
-            this.chatMessageText = new System.Windows.Forms.Label();
-            this.connectedUserList = new System.Windows.Forms.Label();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.ipAddressTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,6 +61,23 @@
             this.panel1.Size = new System.Drawing.Size(905, 825);
             this.panel1.TabIndex = 0;
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(879, 14);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(11, 799);
+            this.vScrollBar1.TabIndex = 3;
+            // 
+            // chatMessageText
+            // 
+            this.chatMessageText.AutoSize = true;
+            this.chatMessageText.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chatMessageText.Location = new System.Drawing.Point(43, 34);
+            this.chatMessageText.Name = "chatMessageText";
+            this.chatMessageText.Size = new System.Drawing.Size(65, 26);
+            this.chatMessageText.TabIndex = 2;
+            this.chatMessageText.Text = "label3";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
@@ -68,6 +87,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(356, 825);
             this.panel2.TabIndex = 0;
+            // 
+            // connectedUserList
+            // 
+            this.connectedUserList.AutoSize = true;
+            this.connectedUserList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectedUserList.Location = new System.Drawing.Point(26, 49);
+            this.connectedUserList.Name = "connectedUserList";
+            this.connectedUserList.Size = new System.Drawing.Size(59, 26);
+            this.connectedUserList.TabIndex = 3;
+            this.connectedUserList.Text = "user1";
             // 
             // label1
             // 
@@ -164,32 +193,25 @@
             this.messageSendButton.UseVisualStyleBackColor = true;
             this.messageSendButton.Click += new System.EventHandler(this.messageSendButton_Click);
             // 
-            // chatMessageText
+            // ipAddressTextBox
             // 
-            this.chatMessageText.AutoSize = true;
-            this.chatMessageText.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chatMessageText.Location = new System.Drawing.Point(43, 34);
-            this.chatMessageText.Name = "chatMessageText";
-            this.chatMessageText.Size = new System.Drawing.Size(65, 26);
-            this.chatMessageText.TabIndex = 2;
-            this.chatMessageText.Text = "label3";
+            this.ipAddressTextBox.Location = new System.Drawing.Point(50, 750);
+            this.ipAddressTextBox.Name = "ipAddressTextBox";
+            this.ipAddressTextBox.Size = new System.Drawing.Size(264, 23);
+            this.ipAddressTextBox.TabIndex = 6;
             // 
-            // connectedUserList
+            // label3
             // 
-            this.connectedUserList.AutoSize = true;
-            this.connectedUserList.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.connectedUserList.Location = new System.Drawing.Point(26, 49);
-            this.connectedUserList.Name = "connectedUserList";
-            this.connectedUserList.Size = new System.Drawing.Size(59, 26);
-            this.connectedUserList.TabIndex = 3;
-            this.connectedUserList.Text = "user1";
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(879, 14);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(11, 799);
-            this.vScrollBar1.TabIndex = 3;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(106, 718);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 29);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "IP Address:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form1
             // 
@@ -197,6 +219,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1769, 974);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ipAddressTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.messageSendButton);
             this.Controls.Add(this.enterButton);
@@ -239,6 +263,8 @@
         private System.Windows.Forms.Label chatMessageText;
         private System.Windows.Forms.Label connectedUserList;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.TextBox ipAddressTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }
 
