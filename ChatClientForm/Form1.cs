@@ -63,7 +63,7 @@ namespace ChatClientForm
             }
             else
             {
-                client = new TcpClient("127.0.0.1", 8000);
+                client = new TcpClient("213.89.224.111", 8000);
                 stream = client.GetStream();
                 byte[] data = Encoding.UTF8.GetBytes(userName);
                 stream.Write(data, 0, data.Length);
@@ -140,6 +140,7 @@ namespace ChatClientForm
 
         private void UpdateConnectedUsersText(string message)
         {
+            connectedUserList.Text = "";
             message = message.Replace("/c", "");
             connectedUserNames = Regex.Split(message, @"/n/");
             foreach (var user in connectedUserNames)
