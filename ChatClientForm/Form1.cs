@@ -72,8 +72,8 @@ namespace ChatClientForm
                     serverIP = IPAddress.Parse(ipAddressTextBox.Text);
                     if (connectedToServer)
                     {
-                        stream.Close();
-                        client.Close();
+                        stream?.Close();
+                        client?.Close();
                         connectedToServer = false;
                         nameInput.ReadOnly = false;
                         messageInputField.ReadOnly = true;
@@ -135,7 +135,7 @@ namespace ChatClientForm
             byte[] buffer = new byte[4028];
             try
             {
-                while (connectedToServer)
+                while (connectedToServer && client.Connected)
                 {
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
                     if (bytesRead == 0)
@@ -149,6 +149,7 @@ namespace ChatClientForm
                     {
                         if (message.StartsWith(userName))
                         {
+                            message = message.Replace(userName, "Me");
                             chatMessageText.Text += message;
                             chatMessageText.Text += Environment.NewLine;
                             messageInputField.Clear();
@@ -172,6 +173,7 @@ namespace ChatClientForm
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"Error: {ex.Message}");
             }
             
             
